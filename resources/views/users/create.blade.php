@@ -1,21 +1,22 @@
-@extends('layouts.app1')
+@extends('adminlte::page')
 
-@section('titulo', 'Adicionar Usuário')
+@section('title', 'Adicionar Usuário')
 
-@section('conteudo')
-<h1>Novo Usuário</h1>
-
-@if ($errors->any())
-    <ul class="errors">
-        @foreach ($errors->all() as $error)
-            <li class="error">{{ $error }}</li>
-        @endforeach
-    </ul>
-@endif
-
-<form action="{{ route('users.store') }}" method="post">
-    @csrf
-    @include('users/partials/form')
-</form>
-
+@section('content')
+    <div class="row">
+        <div class="col-12">
+            <div class="card card-secondary mt-3">
+                <div class="card-header">
+                    <h3 class="card-title">Novo Usuário</h3>
+                </div>
+                <!-- /.card-header -->
+                <!-- form start -->
+                <form action="{{ route('users.store') }}" method="post">
+                    @csrf
+                    @include('users/partials/form')
+                </form>
+            </div>
+            <!-- /.card -->
+        </div>
+    </div>
 @endsection
