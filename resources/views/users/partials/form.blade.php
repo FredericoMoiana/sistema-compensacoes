@@ -20,5 +20,5 @@
 <!-- /.card-body -->
 
 <div class="card-footer">
-    <button type="submit" class="btn btn-secundary">Submit</button>
+    <button type="submit" class="btn btn-secondary">Submit</button>
 </div>

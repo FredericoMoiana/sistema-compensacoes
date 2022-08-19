@@ -229,10 +229,27 @@ return [
         // Sidebar items:
         ['header' => 'ACCOUNT'],
         [
-            'text' => 'List',
+            'text' => 'Add',
             'url'  => 'users/index',
+            'icon' => 'fas fa-fw fa-user',
+        ],
+        [
+            'text' => 'List',
+            'url'  => 'users/create',
             'icon' => 'fas fa-fw fa-list',
         ],
+        ['header' => 'FINANCIADOR'],
+        [
+            'text' => 'Add',
+            'url'  => 'financiadors/index',
+            'icon' => 'fas fa-fw fa-user',
+        ],
+        [
+            'text' => 'List',
+            'url'  => 'financiadors/create',
+            'icon' => 'fas fa-fw fa-list',
+        ],
+
     ],
 
     /*
