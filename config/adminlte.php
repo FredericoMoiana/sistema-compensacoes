@@ -230,23 +230,23 @@ return [
         ['header' => 'ACCOUNT'],
         [
             'text' => 'Add',
-            'url'  => 'users/index',
+            'url'  => 'users/create',
             'icon' => 'fas fa-fw fa-user',
         ],
         [
             'text' => 'List',
-            'url'  => 'users/create',
+            'url'  => 'users/index',
             'icon' => 'fas fa-fw fa-list',
         ],
         ['header' => 'FINANCIADOR'],
         [
             'text' => 'Add',
-            'url'  => 'financiadors/index',
+            'url'  => 'financiadors/create',
             'icon' => 'fas fa-fw fa-user',
         ],
         [
             'text' => 'List',
-            'url'  => 'financiadors/create',
+            'url'  => 'financiadors/index',
             'icon' => 'fas fa-fw fa-list',
         ],
 
