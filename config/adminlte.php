@@ -249,7 +249,39 @@ return [
             'url'  => 'financiadors/index',
             'icon' => 'fas fa-fw fa-list',
         ],
-
+        ['header' => 'ENTRADA'],
+        [
+            'text' => 'Add',
+            'url'  => 'entradas/create',
+            'icon' => 'fas fa-fw fa-money-bill',
+        ],
+        [
+            'text' => 'List',
+            'url'  => 'entradas/index',
+            'icon' => 'fas fa-fw fa-list',
+        ],
+        ['header' => 'SAIDA'],
+        [
+            'text' => 'Add',
+            'url'  => 'saidas/create',
+            'icon' => 'fas fa-fw fa-money-bill',
+        ],
+        [
+            'text' => 'List',
+            'url'  => 'saidas/index',
+            'icon' => 'fas fa-fw fa-list',
+        ],
+        ['header' => 'PARTICIPANTE'],
+        [
+            'text' => 'Add',
+            'url'  => 'participantes/create',
+            'icon' => 'fas fa-fw fa-user',
+        ],
+        [
+            'text' => 'List',
+            'url'  => 'participantes/index',
+            'icon' => 'fas fa-fw fa-list',
+        ],
     ],
 
     /*
