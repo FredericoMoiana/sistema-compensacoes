@@ -44,9 +44,8 @@
                                         <thead>
                                             <tr>
                                                 <th style="width: 10px">#</th>
-                                                <th>Nome</th>
-                                                <th>Data</th>
-                                                <th>Valor</th>
+                                                <th>#</th>
+                                                <th>Código</th>
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
@@ -54,9 +53,7 @@
                                             @foreach ($participantes as $participante)
                                                 <tr>
                                                     <td>{{ $participante->id }}</td>
-                                                    <td>{{ $participante->name }}</td>
-                                                    <td>{{ $participante->data }}</td>
-                                                    <td>{{ $participante->valor }}</td>
+                                                    <td>{{ $participante->codigo }}</td>
                                                     <td>
                                                         <form action=" {{ route('participantes.delete', $participante->id) }} "
                                                             method="POST">

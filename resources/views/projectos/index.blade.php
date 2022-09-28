@@ -1,13 +1,13 @@
 @extends('adminlte::page')
 
-@section('title', 'Lista de Financiadores')
+@section('title', 'Lista de Projectos')
 
 @section('content')
     <div class="row">
         <div class="col-12 mt-3">
             <div class="card">
                 <div class="card-body">
-                    <form action=" {{ route('financiadors.index') }} " method="get">
+                    <form action=" {{ route('projectos.index') }} " method="get">
                         <section class="content">
                             <div class="container-fluid">
                                 <h2 class="text-center display-4">Search</h2>
@@ -33,9 +33,9 @@
                         <div class="col-12">
                             <div class="card mt-3">
                                 <div class="card-header">
-                                    <h3 class="card-title">Lista de Financiadores</h3>
+                                    <h3 class="card-title">Lista de Projectos</h3>
                                     <div class="card-tools">
-                                        <a href="{{ route('financiadors.create') }}" class="btn-sm btn-secondary">Adicionar</a>
+                                        <a href="{{ route('projectos.create') }}" class="btn-sm btn-secondary">Adicionar</a>
                                     </div>
                                 </div>
                                 <!-- /.card-header -->
@@ -44,31 +44,33 @@
                                         <thead>
                                             <tr>
                                                 <th style="width: 10px">#</th>
-                                                <th>Nome</th>
-                                                <th>Data</th>
-                                                <th>Valor</th>
+                                                <th>Acronimo</th>
+                                                <th>Saldo</th>
+                                                <th>Valor Gasto</th>
+                                                <th>Valor Alocado</th>
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @foreach ($financiadors as $financiador)
+                                            @foreach ($projectos as $projecto)
                                                 <tr>
-                                                    <td>{{ $financiador->id }}</td>
-                                                    <td>{{ $financiador->name }}</td>
-                                                    <td>{{ $financiador->data }}</td>
-                                                    <td>{{ $financiador->valor }}</td>
+                                                    <td>{{ $projecto->id }}</td>
+                                                    <td>{{ $projecto->acronimo }}</td>
+                                                    <td>{{ $projecto->saldo }}</td>
+                                                    <td>{{ $projecto->valorGasto }}</td>
+                                                    <td>{{ $projecto->valorAlocado }}</td>
                                                     <td>
-                                                        <form action=" {{ route('financiadors.delete', $financiador->id) }} "
+                                                        <form action=" {{ route('projectos.delete', $projecto->id) }} "
                                                             method="POST">
                                                             @method('DELETE')
                                                             @csrf
                                                             <div class="btn-group">
                                                                 <a role="button" class="btn btn-outline-secondary"
-                                                                    href="{{ route('financiadors.edit', $financiador->id) }}"><i
+                                                                    href="{{ route('projectos.edit', $projecto->id) }}"><i
                                                                         class="fas fa-pencil-alt"></i></a>
                                                                 <button role="button" type="submit"
                                                                     class="btn btn-outline-secondary"
-                                                                    href="{{ route('financiadors.edit', $financiador->id) }}"><i
+                                                                    href="{{ route('projectos.edit', $projecto->id) }}"><i
                                                                         class="fas fa-trash"></i></button>
                                                             </div>
                                                         </form>

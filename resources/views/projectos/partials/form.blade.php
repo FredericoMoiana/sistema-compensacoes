@@ -1,20 +1,25 @@
 @csrf
 <div class="card-body">
-    @include('financiadors.partials.validations')
+    @include('projectos.partials.validations')
     <div class="form-group">
-        <label for="name">Nome</label>
-        <input type="name" name="name" value="{{ $financiador->name ?? old('name') }}" class="form-control" id="name"
-            placeholder="Enter name">
+        <label for="acronimo">Acrônimo</label>
+        <input type="acronimo" name="acronimo" value="{{ $projecto->acronimo ?? old('acronimo') }}" class="form-control" id="acronimo"
+            placeholder="Enter acronimo">
     </div>
     <div class="form-group">
-        <label for="data">Data</label>
-        <input type="date" name="data" value="{{ $financiador->data ?? old('data') }}" class="form-control"
-            id="data" placeholder="Enter data">
+        <label for="saldo">Saldo</label>
+        <input type="saldo" name="saldo" value="{{ $projecto->saldo ?? old('saldo') }}" class="form-control" id="saldo"
+            placeholder="Enter saldo">
     </div>
     <div class="form-group">
-        <label for="valor">Valor</label>
-        <input type="text" name="valor" value="{{ $financiador->valor ?? old('valor') }}" class="form-control"
-            id="valor" placeholder="Enter valor">
+        <label for="valorGasto">Valor Gasto</label>
+        <input type="text" name="valorGasto" value="{{ $projecto->valorGasto ?? old('valorGasto') }}" class="form-control"
+            id="valorGasto" placeholder="Enter valorGasto">
+    </div>
+    <div class="form-group">
+        <label for="valorAlocado">Valor Alocado</label>
+        <input type="text" name="valorAlocado" value="{{ $projecto->valorAlocado ?? old('valorAlocado') }}" class="form-control"
+            id="valorAlocado" placeholder="Enter Valor Alocado">
     </div>
 </div>
 <!-- /.card-body -->

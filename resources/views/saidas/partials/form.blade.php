@@ -1,19 +1,19 @@
 @csrf
 <div class="card-body">
-    @include('financiadors.partials.validations')
+    @include('saidas.partials.validations')
     <div class="form-group">
-        <label for="name">Nome</label>
-        <input type="name" name="name" value="{{ $financiador->name ?? old('name') }}" class="form-control" id="name"
+        <label for="projecto">Projecto</label>
+        <input type="projecto" name="projecto_id" value="{{ getProjecto($id) ?? old('projecto_id') }}" class="form-control" id="name"
             placeholder="Enter name">
     </div>
     <div class="form-group">
         <label for="data">Data</label>
-        <input type="date" name="data" value="{{ $financiador->data ?? old('data') }}" class="form-control"
+        <input type="date" name="data" value="{{ $saida->data ?? old('data') }}" class="form-control"
             id="data" placeholder="Enter data">
     </div>
     <div class="form-group">
         <label for="valor">Valor</label>
-        <input type="text" name="valor" value="{{ $financiador->valor ?? old('valor') }}" class="form-control"
+        <input type="text" name="valor" value="{{ $saida->valor ?? old('valor') }}" class="form-control"
             id="valor" placeholder="Enter valor">
     </div>
 </div>

@@ -7,7 +7,7 @@
         <div class="col-9">
             <div class="card card-secondary mt-3">
                 <div class="card-header">
-                    <h3 class="card-title">Editar Participante {{ $participante->name }}</h3>
+                    <h3 class="card-title">Editar Participante {{ $participante->codigo }}</h3>
                 </div>
                 <!-- /.card-header -->
                 <!-- form start -->
