@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('financiadors', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->double('valor', 9, 2);
+            $table->double('valor', 20, 2);
             $table->date('data');
             $table->timestamps();
         });
