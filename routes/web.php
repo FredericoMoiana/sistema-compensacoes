@@ -1,6 +1,10 @@
 <?php
 
+use App\Http\Controllers\EntradaController;
 use App\Http\Controllers\FinanciadorController;
+use App\Http\Controllers\ParticipanteController;
+use App\Http\Controllers\ProjectoController;
+use App\Http\Controllers\SaidaController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;

@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class ParticipanteController extends Controller
 {
     public function index(Request $request){
-        $participantes = Participante::where('name', 'LIKE', "%{$request->search}%")->get();
+        $participantes = Participante::where('codigo', 'LIKE', "%{$request->search}%")->get();
         return view('participantes/index', compact('participantes'));
     }
     public function show($id)

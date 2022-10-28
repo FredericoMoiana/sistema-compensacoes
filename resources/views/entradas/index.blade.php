@@ -44,9 +44,10 @@
                                         <thead>
                                             <tr>
                                                 <th style="width: 10px">#</th>
-                                                <th>Nome</th>
-                                                <th>Data</th>
+                                                <th>Financiador</th>
+                                                <th>Projecto</th>
                                                 <th>Valor</th>
+                                                <th>Data</th>
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
@@ -54,9 +55,10 @@
                                             @foreach ($entradas as $entrada)
                                                 <tr>
                                                     <td>{{ $entrada->id }}</td>
-                                                    <td>{{ $entrada->name }}</td>
-                                                    <td>{{ $entrada->data }}</td>
+                                                    <td>{{ showNameFinanciador($entrada->financiador_id) }}</td>
+                                                    <td>{{ showNameProject($entrada->projecto_id) }}</td>
                                                     <td>{{ $entrada->valor }}</td>
+                                                    <td>{{ $entrada->data }}</td>
                                                     <td>
                                                         <form action=" {{ route('entradas.delete', $entrada->id) }} "
                                                             method="POST">

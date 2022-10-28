@@ -44,7 +44,6 @@
                                         <thead>
                                             <tr>
                                                 <th style="width: 10px">#</th>
-                                                <th>#</th>
                                                 <th>Código</th>
                                                 <th>Action</th>
                                             </tr>

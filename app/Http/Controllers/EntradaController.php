@@ -4,12 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreUpdateEntradaRequest;
 use App\Models\Entrada;
+use App\Models\Financiador;
+use App\Models\Projecto;
 use Illuminate\Http\Request;
 
 class EntradaController extends Controller
 {
 public function index(Request $request){
-        $financiadors = Entrada::where('name', 'LIKE', "%{$request->search}%")->get();
+        $entradas = Entrada::where('id', 'LIKE', "%{$request->search}%")->get();
         return view('entradas/index', compact('entradas'));
     }
     public function show($id)
@@ -50,5 +52,15 @@ public function index(Request $request){
             $entrada->delete();
 
         return redirect()->route('entradas.index');
+    }
+    public function showNameFinanciador($id)
+    {
+        $financiador = Financiador::find($id);
+        return $financiador->name;
+    }
+    public function showNameProject($id)
+    {
+        $projecto = Projecto::find($id);
+        return $projecto->name;
     }
 }
