@@ -7,7 +7,7 @@
         <div class="col-12">
             <div class="card card-secondary mt-3">
                 <div class="card-header">
-                    <h3 class="card-title">Novo Entrada</h3>
+                    <h3 class="card-title">Nova Entrada</h3>
                 </div>
                 <!-- /.card-header -->
                 <!-- form start -->

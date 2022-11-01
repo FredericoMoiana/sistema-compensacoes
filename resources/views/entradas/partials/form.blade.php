@@ -1,19 +1,29 @@
 @csrf
 <div class="card-body">
-    @include('financiadors.partials.validations')
+    @include('entradas.partials.validations')
     <div class="form-group">
-        <label for="name">Nome</label>
-        <input type="name" name="name" value="{{ $financiador->name ?? old('name') }}" class="form-control" id="name"
+        <label for="name">Financiador</label>
+        <input type="name" name="financiador" value="{{ $entrada->financiador_id->name ?? old('name') }}" class="form-control" id="name"
+            placeholder="Enter name">
+    </div>
+    {{-- <select>
+        @foreach($data2 as $ctg)
+           <option value="{{ $ctg->id }}">{{ $ctg->ctg_name }}</option>
+        @endforeach
+        </select> --}}
+    <div class="form-group">
+        <label for="name">Projecto</label>
+        <input type="name" name="projecto" value="{{ $entrada->projecto_id->acronimo ?? old('projecto') }}" class="form-control" id="name"
             placeholder="Enter name">
     </div>
     <div class="form-group">
         <label for="data">Data</label>
-        <input type="date" name="data" value="{{ $financiador->data ?? old('data') }}" class="form-control"
+        <input type="date" name="data" value="{{ $entrada->data ?? old('data') }}" class="form-control"
             id="data" placeholder="Enter data">
     </div>
     <div class="form-group">
         <label for="valor">Valor</label>
-        <input type="text" name="valor" value="{{ $financiador->valor ?? old('valor') }}" class="form-control"
+        <input type="text" name="valor" value="{{ $entrada->valor ?? old('valor') }}" class="form-control"
             id="valor" placeholder="Enter valor">
     </div>
 </div>

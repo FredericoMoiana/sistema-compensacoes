@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class ProjectoController extends Controller
 {
     public function index(Request $request){
-        $projectos = Projecto::where('name', 'LIKE', "%{$request->search}%")->get();
+        $projectos = Projecto::where('acronimo', 'LIKE', "%{$request->search}%")->get();
         return view('projectos/index', compact('projectos'));
     }
     public function show($id)

@@ -249,6 +249,17 @@ return [
             'url'  => 'financiadors/index',
             'icon' => 'fas fa-fw fa-list',
         ],
+        ['header' => 'PROJECTO'],
+        [
+            'text' => 'Add',
+            'url'  => 'projectos/create',
+            'icon' => 'fas fa-fw fa-user',
+        ],
+        [
+            'text' => 'List',
+            'url'  => 'projectos/index',
+            'icon' => 'fas fa-fw fa-list',
+        ],
         ['header' => 'ENTRADA'],
         [
             'text' => 'Add',

@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class SaidaController extends Controller
 {
     public function index(Request $request){
-        $saidas = Saida::where('name', 'LIKE', "%{$request->search}%")->get();
+        $saidas = Saida::where('id', 'LIKE', "%{$request->search}%")->get();
         return view('saidas/index', compact('saidas'));
     }
     public function show($id)
@@ -48,7 +48,6 @@ class SaidaController extends Controller
         if (!$saida = Saida::find($id))
             return redirect()->route('saidas.index');
             $saida->delete();
-
         return redirect()->route('saidas.index');
     }
 }
