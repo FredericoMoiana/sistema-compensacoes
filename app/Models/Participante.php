@@ -11,5 +11,9 @@ class Participante extends Model
 
     protected $fillable = [
         'codigo',
+        'projecto_id',
     ];
+    public function projecto(){
+        $this->belongsTo(Projecto::class);
+    }
 }

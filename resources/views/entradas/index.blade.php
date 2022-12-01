@@ -10,7 +10,7 @@
                     <form action=" {{ route('entradas.index') }} " method="get">
                         <section class="content">
                             <div class="container-fluid">
-                                <h2 class="text-center display-4">Search</h2>
+                                <h2 class="text-center display-4">Pesquisa</h2>
                                 <div class="row">
                                     <div class="col-md-8 offset-md-2">
                                         <form action="simple-results.html">
@@ -55,10 +55,10 @@
                                             @foreach ($entradas as $entrada)
                                                 <tr>
                                                     <td>{{ $entrada->id }}</td>
-                                                    <td>{{ showNameFinanciador($entrada->financiador_id) }}</td>
-                                                    <td>{{ showNameProject($entrada->projecto_id) }}</td>
-                                                    <td>{{ $entrada->valor }}</td>
-                                                    <td>{{ $entrada->data }}</td>
+                                                    <td>{{ $entrada->name }}</td>
+                                                    <td>{{ $entrada->acronimo }}</td>
+                                                    <td>{{ number_format($entrada->valor, 2) }}</td>
+                                                    <td>{{ $entrada->updated_at }}</td>
                                                     <td>
                                                         <form action=" {{ route('entradas.delete', $entrada->id) }} "
                                                             method="POST">

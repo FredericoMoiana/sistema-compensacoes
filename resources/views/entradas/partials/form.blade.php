@@ -3,23 +3,33 @@
     @include('entradas.partials.validations')
     <div class="form-group">
         <label for="name">Financiador</label>
-        <input type="name" name="financiador" value="{{ $entrada->financiador_id->name ?? old('name') }}" class="form-control" id="name"
-            placeholder="Enter name">
+        <select class="form-control" name="financiador_id">
+            @if (isset($financiador))
+                <option value="{{ $financiador->id }}" selected> {{ $financiador->name }}</option>
+                @foreach ($financiadores as $financiador)
+                    <option value="{{ $financiador->id }}"> {{ $financiador->name }}</option>
+                @endforeach
+            @else
+                @foreach ($financiadores as $financiador)
+                    <option value="{{ $financiador->id }}"> {{ $financiador->name }}</option>
+                @endforeach
+            @endif
+        </select>
     </div>
-    {{-- <select>
-        @foreach($data2 as $ctg)
-           <option value="{{ $ctg->id }}">{{ $ctg->ctg_name }}</option>
-        @endforeach
-        </select> --}}
     <div class="form-group">
         <label for="name">Projecto</label>
-        <input type="name" name="projecto" value="{{ $entrada->projecto_id->acronimo ?? old('projecto') }}" class="form-control" id="name"
-            placeholder="Enter name">
-    </div>
-    <div class="form-group">
-        <label for="data">Data</label>
-        <input type="date" name="data" value="{{ $entrada->data ?? old('data') }}" class="form-control"
-            id="data" placeholder="Enter data">
+        <select class="form-control" name="projecto_id">
+            @if (isset($projecto))
+                <option value="{{ $projecto->id }}" selected> {{ $projecto->acronimo }}</option>
+                @foreach ($projectos as $projecto)
+                    <option value="{{ $projecto->id }}"> {{ $projecto->acronimo }}</option>
+                @endforeach
+            @else
+                @foreach ($projectos as $projecto)
+                    <option value="{{ $projecto->id }}"> {{ $projecto->acronimo }}</option>
+                @endforeach
+            @endif
+        </select>
     </div>
     <div class="form-group">
         <label for="valor">Valor</label>

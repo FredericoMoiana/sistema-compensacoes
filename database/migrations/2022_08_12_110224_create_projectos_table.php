@@ -16,9 +16,6 @@ return new class extends Migration
         Schema::create('projectos', function (Blueprint $table) {
             $table->id();
             $table->string('acronimo');
-            $table->double('saldo', 9, 2)->nullable();
-            $table->double('valorGasto', 9, 2)->nullable();
-            $table->double('valorAlocado', 9, 2)->nullable();
             $table->timestamps();
         });
     }

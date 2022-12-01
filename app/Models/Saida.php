@@ -13,7 +13,6 @@ class Saida extends Model
         'idProjecto',
         'idParticipante',
         'valor',
-        'data',
     ];
     public function projecto(){
         $this->belongsTo(Projecto::class);

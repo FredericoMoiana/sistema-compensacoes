@@ -10,7 +10,7 @@
                     <form action=" {{ route('financiadors.index') }} " method="get">
                         <section class="content">
                             <div class="container-fluid">
-                                <h2 class="text-center display-4">Search</h2>
+                                <h2 class="text-center display-4">Pesquisa</h2>
                                 <div class="row">
                                     <div class="col-md-8 offset-md-2">
                                         <form action="simple-results.html">
@@ -45,8 +45,6 @@
                                             <tr>
                                                 <th style="width: 10px">#</th>
                                                 <th>Nome</th>
-                                                <th>Data</th>
-                                                <th>Valor</th>
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
@@ -55,8 +53,6 @@
                                                 <tr>
                                                     <td>{{ $financiador->id }}</td>
                                                     <td>{{ $financiador->name }}</td>
-                                                    <td>{{ $financiador->data }}</td>
-                                                    <td>{{ $financiador->valor }}</td>
                                                     <td>
                                                         <form action=" {{ route('financiadors.delete', $financiador->id) }} "
                                                             method="POST">

@@ -227,71 +227,54 @@ return [
     'menu' => [
 
         // Sidebar items:
+        ['header' => 'DASHBOARD'],
+        [
+            'text' => 'View',
+            'url'  => 'home',
+            'icon' => 'fas fa-fw fa-chalkboard',
+        ],
+        ['header' => 'CADASTROS'],
+        [
+            'text' => 'Financiador',
+            'url'  => 'financiadors/index',
+            'icon' => 'fas fa-fw fa-user',
+        ],
+        [
+            'text' => 'Projecto',
+            'url'  => 'projectos/index',
+            'icon' => 'fas fa-fw fa-user',
+        ],
+        [
+            'text' => 'Entrada',
+            'url'  => 'entradas/index',
+            'icon' => 'fas fa-fw fa-user',
+        ],
+        [
+            'text' => 'Saída',
+            'url'  => 'saidas/index',
+            'icon' => 'fas fa-fw fa-user',
+        ],
+        [
+            'text' => 'Participante',
+            'url'  => 'participantes/index',
+            'icon' => 'fas fa-fw fa-user',
+        ],
+        ['header' => 'GASTOS'],
+        [
+            'text' => 'Por Mês',
+            'url'  => 'graficos/mes',
+            'icon' => 'fas fa-fw fa-calendar',
+        ],
+        [
+            'text' => 'Por Ano',
+            'url'  => 'graficos/ano',
+            'icon' => 'fas fa-fw fa-calendar',
+        ],
         ['header' => 'ACCOUNT'],
         [
-            'text' => 'Add',
-            'url'  => 'users/create',
-            'icon' => 'fas fa-fw fa-user',
-        ],
-        [
-            'text' => 'List',
+            'text' => 'User',
             'url'  => 'users/index',
-            'icon' => 'fas fa-fw fa-list',
-        ],
-        ['header' => 'FINANCIADOR'],
-        [
-            'text' => 'Add',
-            'url'  => 'financiadors/create',
             'icon' => 'fas fa-fw fa-user',
-        ],
-        [
-            'text' => 'List',
-            'url'  => 'financiadors/index',
-            'icon' => 'fas fa-fw fa-list',
-        ],
-        ['header' => 'PROJECTO'],
-        [
-            'text' => 'Add',
-            'url'  => 'projectos/create',
-            'icon' => 'fas fa-fw fa-user',
-        ],
-        [
-            'text' => 'List',
-            'url'  => 'projectos/index',
-            'icon' => 'fas fa-fw fa-list',
-        ],
-        ['header' => 'ENTRADA'],
-        [
-            'text' => 'Add',
-            'url'  => 'entradas/create',
-            'icon' => 'fas fa-fw fa-money-bill',
-        ],
-        [
-            'text' => 'List',
-            'url'  => 'entradas/index',
-            'icon' => 'fas fa-fw fa-list',
-        ],
-        ['header' => 'SAIDA'],
-        [
-            'text' => 'Add',
-            'url'  => 'saidas/create',
-            'icon' => 'fas fa-fw fa-money-bill',
-        ],
-        [
-            'text' => 'List',
-            'url'  => 'saidas/index',
-            'icon' => 'fas fa-fw fa-list',
-        ],
-        ['header' => 'PARTICIPANTE'],
-        [
-            'text' => 'Add',
-            'url'  => 'participantes/create',
-            'icon' => 'fas fa-fw fa-user',
-        ],
-        [
-            'text' => 'List',
-            'url'  => 'participantes/index',
-            'icon' => 'fas fa-fw fa-list',
         ],
     ],
 
@@ -366,7 +349,7 @@ return [
             ],
         ],
         'Chartjs' => [
-            'active' => false,
+            'active' => true,
             'files' => [
                 [
                     'type' => 'js',

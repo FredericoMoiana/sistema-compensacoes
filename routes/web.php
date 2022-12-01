@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\EntradaController;
 use App\Http\Controllers\FinanciadorController;
+use App\Http\Controllers\GraficoController;
 use App\Http\Controllers\ParticipanteController;
 use App\Http\Controllers\ProjectoController;
 use App\Http\Controllers\SaidaController;
@@ -19,6 +20,10 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+//Route::get('/graficos/mes/{id}', [GraficoController::class, 'mes'])->name('graficos.mes');
+Route::get('/graficos/mes/', [GraficoController::class, 'mes'])->name('graficos.mes');
+Route::get('/graficos/ano/', [GraficoController::class, 'ano'])->name('graficos.ano');
 
 Route::delete('/users/{id}', [UserController::class, 'delete'])->name('users.delete');
 Route::put('/users/{id}', [UserController::class, 'update'])->name('users.update');

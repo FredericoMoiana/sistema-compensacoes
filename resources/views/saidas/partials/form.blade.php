@@ -2,19 +2,34 @@
 <div class="card-body">
     @include('saidas.partials.validations')
     <div class="form-group">
-        <label for="projecto">Projecto</label>
-        <input type="projecto" name="projecto_id" value="{{ $saida->projecto_id->acronimo ?? old('projecto_id') }}" class="form-control" id="name"
-            placeholder="Enter name">
+        <label for="name">Projecto</label>
+        <select class="form-control" name="projecto_id">
+            @if (isset($projecto))
+                <option value="{{ $projecto->id }}" selected> {{ $projecto->acronimo }}</option>
+                @foreach ($projectos as $projecto)
+                    <option value="{{ $projecto->id }}"> {{ $projecto->acronimo }}</option>
+                @endforeach
+            @else
+                @foreach ($projectos as $projecto)
+                    <option value="{{ $projecto->id }}"> {{ $projecto->acronimo }}</option>
+                @endforeach
+            @endif
+        </select>
     </div>
     <div class="form-group">
-        <label for="participante">Participante</label>
-        <input type="participante" name="participante_id" value="{{ $saida->participante_id->codigo ?? old('participante_id') }}" class="form-control" id="name"
-            placeholder="Enter the participante code">
-    </div>
-    <div class="form-group">
-        <label for="data">Data</label>
-        <input type="date" name="data" value="{{ $saida->data ?? old('data') }}" class="form-control"
-            id="data" placeholder="Enter date">
+        <label for="name">Participante</label>
+        <select class="form-control" name="participante_id">
+            @if (isset($participante))
+                <option value="{{ $participante->id }}" selected> {{ $participante->codigo }}</option>
+                @foreach ($participantes as $participante)
+                    <option value="{{ $participante->id }}"> {{ $participante->codigo }}</option>
+                @endforeach
+            @else
+                @foreach ($participantes as $participante)
+                    <option value="{{ $participante->id }}"> {{ $participante->codigo }}</option>
+                @endforeach
+            @endif
+        </select>
     </div>
     <div class="form-group">
         <label for="valor">Valor</label>

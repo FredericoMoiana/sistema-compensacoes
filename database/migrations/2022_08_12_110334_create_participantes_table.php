@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('participantes', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('projecto_id')->constrained('projectos');
             $table->string('codigo');
             $table->timestamps();
         });

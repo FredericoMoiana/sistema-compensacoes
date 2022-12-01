@@ -18,7 +18,6 @@ return new class extends Migration
             $table->foreignId('projecto_id')->constrained('projectos');
             $table->foreignId('participante_id');
             $table->double('valor', 9, 2);
-            $table->date('data');
             $table->timestamps();
         });
     }

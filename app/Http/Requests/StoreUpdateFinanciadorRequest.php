@@ -31,14 +31,6 @@ class StoreUpdateFinanciadorRequest extends FormRequest
                 'max:255',
                 'min:2'
             ],
-            'valor' => [
-                'required',
-                'numeric'
-            ],
-            'data' => [
-                'required',
-                'date',
-            ]
         ];
         return $rules;
     }

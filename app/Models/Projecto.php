@@ -11,11 +11,11 @@ class Projecto extends Model
 
     protected $fillable = [
         'acronimo',
-        'saldo',
-        'valorGasto',
-        'valorAlocado',
     ];
     public function saidas(){
         return $this->hasMany(Saida::class);
+    }
+    public function participantes(){
+        return $this->hasMany(Participante::class);
     }
 }

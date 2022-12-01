@@ -28,6 +28,10 @@ class StoreUpdateParticipanteRequest extends FormRequest
                 'required',
                 'string',
             ],
+            'projecto_id' => [
+                'required',
+                'integer',
+            ],
         ];
     }
 }

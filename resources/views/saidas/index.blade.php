@@ -10,7 +10,7 @@
                     <form action=" {{ route('saidas.index') }} " method="get">
                         <section class="content">
                             <div class="container-fluid">
-                                <h2 class="text-center display-4">Search</h2>
+                                <h2 class="text-center display-4">Pesquisa</h2>
                                 <div class="row">
                                     <div class="col-md-8 offset-md-2">
                                         <form action="simple-results.html">
@@ -55,10 +55,10 @@
                                             @foreach ($saidas as $saida)
                                                 <tr>
                                                     <td>{{ $saida->id }}</td>
-                                                    <td>{{ $saida->projecto->acronimo }}</td>
-                                                    <td>{{ $saida->participante_id }}</td>
+                                                    <td>{{ $saida->acronimo }}</td>
+                                                    <td>{{ $saida->codigo }}</td>
                                                     <td>{{ $saida->valor }}</td>
-                                                    <td>{{ $saida->data }}</td>
+                                                    <td>{{ $saida->created_at }}</td>
                                                     <td>
                                                         <form action=" {{ route('saidas.delete', $saida->id) }} "
                                                             method="POST">

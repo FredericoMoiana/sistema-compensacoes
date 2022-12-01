@@ -36,10 +36,6 @@ class StoreUpdateSaidaRequest extends FormRequest
                 'required',
                 'numeric'
             ],
-            'data' => [
-                'required',
-                'date',
-            ]
         ];
     }
 }

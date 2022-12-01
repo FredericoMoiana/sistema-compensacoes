@@ -10,10 +10,9 @@ class Entrada extends Model
     use HasFactory;
 
     protected $fillable = [
-        'idProjecto',
-        'idFinanciador',
+        'projecto_id',
+        'financiador_id',
         'valor',
-        'data',
     ];
     public function financiador(){
         return $this->belongsTo(Financiador::class);

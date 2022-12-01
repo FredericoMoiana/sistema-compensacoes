@@ -7,11 +7,19 @@ use App\Models\Entrada;
 use App\Models\Financiador;
 use App\Models\Projecto;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class EntradaController extends Controller
 {
-public function index(Request $request){
-        $entradas = Entrada::where('id', 'LIKE', "%{$request->search}%")->get();
+    public function index(Request $request)
+    {
+        //$entradas = Entrada::where('id', 'LIKE', "%{$request->search}%")->get();
+        $entradas = DB::table('entradas')
+        ->join('financiadors', 'entradas.financiador_id', '=', 'financiadors.id')
+        ->join('projectos', 'entradas.projecto_id', '=', 'projectos.id')
+        ->select('entradas.*', 'financiadors.name', 'projectos.acronimo')
+        ->where('projectos.acronimo', 'LIKE', "%{$request->search}%")
+        ->get();
         return view('entradas/index', compact('entradas'));
     }
     public function show($id)
@@ -22,7 +30,9 @@ public function index(Request $request){
     }
     public function create()
     {
-        return view('entradas.create');
+        $financiadores = Financiador::all(['id', 'name']);
+        $projectos = Projecto::all(['id', 'acronimo']);
+        return view('entradas.create', compact('projectos', 'financiadores'));
     }
     public function store(StoreUpdateEntradaRequest $request)
     {
@@ -34,8 +44,12 @@ public function index(Request $request){
     {
         //$entradas = Entrada::find($id);
         if (!$entrada = Entrada::find($id))
-            return redirect()->route('entradas.index');
-        return view('entradas/edit', compact('entrada'));
+        return redirect()->route('entradas.index');
+        $financiador = Financiador::find($entrada->financiador_id);
+        $projecto = Projecto::find($entrada->projecto_id);
+        $financiadores = Financiador::all(['id', 'name']);
+        $projectos = Projecto::all(['id', 'acronimo']);
+        return view('entradas/edit', compact('entrada', 'projecto', 'financiador','projectos', 'financiadores'));
     }
     public function update(StoreUpdateEntradaRequest $request, $id)
     {
@@ -49,18 +63,8 @@ public function index(Request $request){
     {
         if (!$entrada = Entrada::find($id))
             return redirect()->route('entradas.index');
-            $entrada->delete();
+        $entrada->delete();
 
         return redirect()->route('entradas.index');
-    }
-    public function showNameFinanciador($id)
-    {
-        $financiador = Financiador::find($id);
-        return $financiador->name;
-    }
-    public function showNameProject($id)
-    {
-        $projecto = Projecto::find($id);
-        return $projecto->name;
     }
 }

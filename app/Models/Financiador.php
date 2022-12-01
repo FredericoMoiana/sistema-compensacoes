@@ -11,8 +11,6 @@ class Financiador extends Model
 
     protected $fillable = [
         'name',
-        'valor',
-        'data',
     ];
     public function entradas(){
         return $this->hasMany(Entrada::class);

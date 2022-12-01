@@ -30,15 +30,6 @@ class StoreUpdateProjectoRequest extends FormRequest
                 'max:255',
                 'min:2'
             ],
-            'saldo' => [
-                'numeric'
-            ],
-            'valorGasto' => [
-                'numeric'
-            ],
-            'valorAlocado' => [
-                'numeric'
-            ],
         ];
     }
 }

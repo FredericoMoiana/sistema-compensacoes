@@ -36,10 +36,6 @@ class StoreUpdateEntradaRequest extends FormRequest
                 'required',
                 'numeric'
             ],
-            'data' => [
-                'required',
-                'date',
-            ]
         ];
     }
 }

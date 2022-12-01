@@ -10,7 +10,7 @@
                     <form action=" {{ route('projectos.index') }} " method="get">
                         <section class="content">
                             <div class="container-fluid">
-                                <h2 class="text-center display-4">Search</h2>
+                                <h2 class="text-center display-4">Pesquisa</h2>
                                 <div class="row">
                                     <div class="col-md-8 offset-md-2">
                                         <form action="simple-results.html">
@@ -45,9 +45,6 @@
                                             <tr>
                                                 <th style="width: 10px">#</th>
                                                 <th>Acronimo</th>
-                                                <th>Saldo</th>
-                                                <th>Valor Gasto</th>
-                                                <th>Valor Alocado</th>
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
@@ -56,9 +53,6 @@
                                                 <tr>
                                                     <td>{{ $projecto->id }}</td>
                                                     <td>{{ $projecto->acronimo }}</td>
-                                                    <td>{{ $projecto->saldo }}</td>
-                                                    <td>{{ $projecto->valorGasto }}</td>
-                                                    <td>{{ $projecto->valorAlocado }}</td>
                                                     <td>
                                                         <form action=" {{ route('projectos.delete', $projecto->id) }} "
                                                             method="POST">
