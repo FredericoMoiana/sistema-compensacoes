@@ -21,9 +21,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-//Route::get('/graficos/mes/{id}', [GraficoController::class, 'mes'])->name('graficos.mes');
-Route::get('/graficos/mes/', [GraficoController::class, 'mes'])->name('graficos.mes');
-Route::get('/graficos/ano/', [GraficoController::class, 'ano'])->name('graficos.ano');
+Route::get('/graficos/projecto/mes', [GraficoController::class, 'projectoMes'])->name('graficos.projecto.mes');
+Route::get('/graficos/projecto/ano', [GraficoController::class, 'projectoAno'])->name('graficos.projecto.ano');
+Route::get('/graficos/financiador/mes', [GraficoController::class, 'financiadorMes'])->name('graficos.financiador.mes');
+Route::get('/graficos/financiador/ano', [GraficoController::class, 'financiadorAno'])->name('graficos.financiador.ano');
+Route::get('/graficos/todos/mes', [GraficoController::class, 'todosMes'])->name('graficos.todos.mes');
+Route::get('/graficos/todos/ano', [GraficoController::class, 'todosAno'])->name('graficos.todos.ano');
 
 Route::delete('/users/{id}', [UserController::class, 'delete'])->name('users.delete');
 Route::put('/users/{id}', [UserController::class, 'update'])->name('users.update');

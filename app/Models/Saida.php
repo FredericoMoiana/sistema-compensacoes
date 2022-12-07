@@ -10,8 +10,8 @@ class Saida extends Model
     use HasFactory;
 
     protected $fillable = [
-        'idProjecto',
-        'idParticipante',
+        'projecto_id',
+        'participante_id',
         'valor',
     ];
     public function projecto(){
