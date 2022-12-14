@@ -63,11 +63,15 @@
     </div>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
-        var dados = @json($dados);
+        var projectos = @json($projectos);
     </script>
     <script>
-        var keys = Object.keys(dados);
-        var data = Object.values(dados);
+        var data = [], keys = [];
+        for (let x in projectos) {
+            keys[x] = projectos[x]['acronimo'];
+            data[x] = projectos[x]['total'];
+        }
+        console.log(data);
         const ctx = document.getElementById('myChart');
         new Chart(ctx, {
             data: {

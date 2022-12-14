@@ -37,7 +37,7 @@ class GraficoController extends Controller
             $tEntradas = DB::table('entradas')->where('projecto_id', $project_id)->whereYear('created_at', '=', $year)->whereMonth('created_at', '=', $month)->sum('valor');
             $tSaidas = DB::table('saidas')->where('projecto_id', $project_id)->whereYear('created_at', '=', $year)->whereMonth('created_at', '=', $month)->sum('valor');
             $saldo = $tEntradas - $tSaidas;
-            $dadosBar [] = [$saldo, $tSaidas, $tEntradas];
+            $dadosBar[] = [$saldo, $tSaidas, $tEntradas];
             $month = $month + 1;
         } while ($month <= 12);
         $tEntradas = DB::table('entradas')->where('projecto_id', $project_id)->whereYear('created_at', '=', $year)->sum('valor');
@@ -49,36 +49,41 @@ class GraficoController extends Controller
     public function financiadorMes(Request $request)
     {
         $financiadors = Financiador::all(['id', 'name']);
-        $financiador_id = $request->financiador_id;
+        $financiador_id = $request->financiador_id ?? 0;
         $data = date_create($request->data);
         $year = $data->format('Y');
         $month = $data->format('m');
-
-        $projectos = DB::table('entradas')
-        ->join('financiadors', 'entradas.financiador_id', '=', 'financiadors.id')
-        ->join('projectos', 'entradas.projecto_id', '=', 'projectos.id')
-        ->select('entradas.valor', 'projectos.acronimo')->get();
-
-        $tEntradas = DB::table('entradas')->where('financiador_id', $financiador_id)->whereYear('created_at', '=', $year)->whereMonth('created_at', '=', $month)->sum('valor');
-
-        $dados = ['Valor Alocado' => $tEntradas];
-        return view('graficos/financiador/mes', compact('financiadors', 'dados'));
+        $projectos = DB::select('select projectos.acronimo, SUM(valor) as total
+        from entradas
+        INNER JOIN financiadors on entradas.financiador_id = financiadors.id
+        INNER JOIN projectos on entradas.projecto_id = projectos.id
+        where entradas.financiador_id = ' . $financiador_id . ' and
+        YEAR(entradas.created_at) = ' . $year . ' and
+        Month(entradas.created_at) = ' . $month . '
+        group By projectos.acronimo');
+        return view('graficos/financiador/mes', compact('financiadors', 'projectos'));
     }
     public function financiadorAno(Request $request)
     {
         $financiadors = Financiador::all(['id', 'name']);
-        $financiador_id = $request->financiador_id;
+        $financiador_id = $request->financiador_id ?? 0;
         $data = date_create($request->data);
         $year = $data->format('Y');
-        $month = $data->format('m');
+        $anoProjectos = array();
+        if ($financiador_id != 0) {
+            for ($i = 1; $i <= 12; $i++) {
+                $projectos = DB::table('entradas')
+                ->where('financiador_id', $financiador_id)
+                ->whereYear('created_at', $year)
+                ->whereMonth('created_at', $i)
+                ->sum('valor');
+                $anoProjectos[] = $projectos;
+            }
+        } else {
+            $anoProjectos[] = $financiadors;
+        }
 
-        $tEntradas = DB::table('entradas')
-            ->where('financiador_id', $financiador_id)
-            ->whereYear('created_at', '=', $year)
-            ->sum('valor');
-
-        $dados = ['Valor Alocado' => $tEntradas];
-        return view('graficos/financiador/ano', compact('financiadors', 'dados'));
+        return view('graficos/financiador/ano', compact('financiadors', 'anoProjectos'));
     }
     public function todosMes(Request $request)
     {

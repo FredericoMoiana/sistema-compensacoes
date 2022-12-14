@@ -13,8 +13,8 @@
                                 <h2 class="text-center display-4">Pesquisa</h2>
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <input type="date" class="form-control" value="{{ old('data') }}"
-                                            name="data">
+                                        <input type="number" class="form-control" min="1980" max="<?php date('Y'); ?>"
+                                     name="data" placeholder="Ano">
                                     </div>
                                     <div class="col-md-6">
                                         <form action="simple-results.html">
@@ -89,8 +89,8 @@
         var keys = Object.keys(dadosPie);
         var keysBar = Object.keys(dadosBar);
         var data = Object.values(dadosPie);
-        console.log(months);
         var dataBar = Object.values(dadosBar);
+        console.log(dataBar);
         var data1 = [dataBar[0][0],dataBar[1][0],dataBar[2][0],dataBar[3][0],dataBar[4][0],dataBar[5][0],dataBar[6][0],dataBar[7][0],dataBar[8][0],dataBar[9][0],dataBar[10][0],dataBar[11][0]];
         var data2 = [dataBar[0][1],dataBar[1][1],dataBar[2][1],dataBar[3][1],dataBar[4][1],dataBar[5][1],dataBar[6][1],dataBar[7][1],dataBar[8][1],dataBar[9][1],dataBar[10][1],dataBar[11][1]];
         var data3 = [dataBar[0][2],dataBar[1][2],dataBar[2][2],dataBar[3][2],dataBar[4][2],dataBar[5][2],dataBar[6][2],dataBar[7][2],dataBar[8][2],dataBar[9][2],dataBar[10][2],dataBar[11][2]];

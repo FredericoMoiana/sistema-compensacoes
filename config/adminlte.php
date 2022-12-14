@@ -232,44 +232,39 @@ return [
             'url'  => 'home',
             'icon' => 'fas fa-fw fa-chalkboard',
         ],
+        ['header' => 'CADASTROS'],
         [
-            'text'    => 'CADASTROS',
-            'icon'    => 'fas fa-fw fa-plus',
-            'submenu' => [
-                [
-                    'text' => 'Financiador',
-                    'icon' => 'fas fa-fw fa-user',
-                    'url'  => 'financiadors/index',
-                ],
-                [
-                    'text' => 'Projecto',
-                    'icon' => 'fas fa-fw fa-user',
-                    'url'  => 'projectos/index',
-                ],
-                [
-                    'text' => 'Entrada',
-                    'icon' => 'fas fa-fw fa-user',
-                    'url'  => 'entradas/index',
-                ],
-                [
-                    'text' => 'Saída',
-                    'icon' => 'fas fa-fw fa-user',
-                    'url'  => 'saidas/index',
-                ],
-                [
-                    'text' => 'Participante',
-                    'icon' => 'fas fa-fw fa-user',
-                    'url'  => 'participantes/index',
-                ],
-            ],
+            'text' => 'Financiador',
+            'icon' => 'fas fa-fw fa-user',
+            'url'  => 'financiadors/index',
+        ],
+        [
+            'text' => 'Projecto',
+            'icon' => 'fas fa-fw fa-window-restore',
+            'url'  => 'projectos/index',
+        ],
+        [
+            'text' => 'Entrada',
+            'icon' => 'fas fa-fw fa-credit-card',
+            'url'  => 'entradas/index',
+        ],
+        [
+            'text' => 'Saída',
+            'icon' => 'fas fa-fw fa-credit-card',
+            'url'  => 'saidas/index',
+        ],
+        [
+            'text' => 'Participante',
+            'icon' => 'fas fa-fw fa-user',
+            'url'  => 'participantes/index',
         ],
         [
             'text' => 'GRÁFICOS',
-            'icon' => 'fas fa-fw fa-window-restore',
+            'icon' => 'fas fa-fw fa-chart-pie',
             'submenu' => [
                 [
                     'text' => 'Projecto',
-                    'icon' => 'fas fa-fw fa-calendar',
+                    'icon' => 'fas fa-fw fa-window-restore',
                     'submenu' => [
                         [
                             'text' => 'Por Mês',
@@ -285,7 +280,7 @@ return [
                 ],
                 [
                     'text' => 'Financiador',
-                    'icon' => 'fas fa-fw fa-calendar',
+                    'icon' => 'fas fa-fw fa-user',
                     'submenu' => [
                         [
                             'text' => 'Por Mês',

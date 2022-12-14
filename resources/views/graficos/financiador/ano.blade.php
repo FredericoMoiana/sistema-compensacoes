@@ -13,8 +13,8 @@
                                 <h2 class="text-center display-4">Pesquisa</h2>
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <input type="date" class="form-control" value="{{ old('data') }}"
-                                            name="data">
+                                        <input type="number" class="form-control" min="1980" max="<?php date('Y'); ?>"
+                                     name="data" placeholder="Ano">
                                     </div>
                                     <div class="col-md-6">
                                         <form action="simple-results.html">
@@ -63,20 +63,17 @@
     </div>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
-        var dados = @json($dados);
+        var anoProjectos = @json($anoProjectos);
     </script>
     <script>
-        var keys = Object.keys(dados);
-        var data = Object.values(dados);
+        var months = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'];
         const ctx = document.getElementById('myChart');
         new Chart(ctx, {
             data: {
-                datasets: [{
-                    type: 'bar',
-                    label: 'Valor',
-                    data: data
-                }, ],
-                labels: keys
+                datasets: [
+                    {type: 'bar', label: 'Valor alocado', data: anoProjectos },
+                ],
+                labels: months
             },
             options: {
                 scales: {
