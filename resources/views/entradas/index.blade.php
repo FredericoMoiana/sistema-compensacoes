@@ -7,7 +7,7 @@
         <div class="col-12 mt-3">
             <div class="card">
                 <div class="card-body">
-                    <form action=" {{ route('entradas.index') }} " method="get">
+                    {{-- <form action=" {{ route('entradas.index') }} " method="get">
                         <section class="content">
                             <div class="container-fluid">
                                 <h2 class="text-center display-4">Pesquisa</h2>
@@ -28,7 +28,7 @@
                                 </div>
                             </div>
                         </section>
-                    </form>
+                    </form> --}}
                     <div class="row">
                         <div class="col-12">
                             <div class="card mt-3">
@@ -39,11 +39,10 @@
                                     </div>
                                 </div>
                                 <!-- /.card-header -->
-                                <div class="card-body p-0">
-                                    <table class="table">
+                               <div class="card-body">
+                                    <table id="example" class="table table-bordered table-striped">
                                         <thead>
                                             <tr>
-                                                <th style="width: 10px">#</th>
                                                 <th>Financiador</th>
                                                 <th>Projecto</th>
                                                 <th>Valor</th>
@@ -54,7 +53,6 @@
                                         <tbody>
                                             @foreach ($entradas as $entrada)
                                                 <tr>
-                                                    <td>{{ $entrada->id }}</td>
                                                     <td>{{ $entrada->name }}</td>
                                                     <td>{{ $entrada->acronimo }}</td>
                                                     <td>{{ number_format($entrada->valor, 2) }}</td>
@@ -89,4 +87,5 @@
             </div>
         </div>
     </div>
+    @include('layouts.datatable')
 @endsection

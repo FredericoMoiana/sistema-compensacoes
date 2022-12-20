@@ -36,6 +36,11 @@
         <input type="text" name="valor" value="{{ $saida->valor ?? old('valor') }}" class="form-control"
             id="valor" placeholder="Enter valor">
     </div>
+    <div class="form-group">
+        <label for="visita">Visita</label>
+        <input type="text" name="visita" value="{{ $saida->visita ?? old('visita') }}" class="form-control"
+            id="visita" placeholder="Enter visita">
+    </div>
 </div>
 <!-- /.card-body -->
 

@@ -71,7 +71,6 @@
             keys[x] = projectos[x]['acronimo'];
             data[x] = projectos[x]['total'];
         }
-        console.log(data);
         const ctx = document.getElementById('myChart');
         new Chart(ctx, {
             data: {

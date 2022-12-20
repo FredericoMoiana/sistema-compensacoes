@@ -1,7 +1,6 @@
 @extends('adminlte::page')
 
 @section('title', 'Lista de Saidas')
-
 @section('content')
     <div class="row">
         <div class="col-12 mt-3">
@@ -38,15 +37,14 @@
                                         <a href="{{ route('saidas.create') }}" class="btn-sm btn-secondary">Adicionar</a>
                                     </div>
                                 </div>
-                                <!-- /.card-header -->
-                                <div class="card-body p-0">
-                                    <table class="table">
+                                <div class="card-body">
+                                    <table id="example" class="table table-bordered table-striped">
                                         <thead>
                                             <tr>
-                                                <th style="width: 10px">#</th>
                                                 <th>Projecto</th>
                                                 <th>Participante</th>
                                                 <th>Valor</th>
+                                                <th>Visita</th>
                                                 <th>Data</th>
                                                 <th>Action</th>
                                             </tr>
@@ -54,10 +52,10 @@
                                         <tbody>
                                             @foreach ($saidas as $saida)
                                                 <tr>
-                                                    <td>{{ $saida->id }}</td>
                                                     <td>{{ $saida->acronimo }}</td>
                                                     <td>{{ $saida->codigo }}</td>
-                                                    <td>{{ $saida->valor }}</td>
+                                                    <td>{{ number_format($saida->valor, 2) . ' MT' }}</td>
+                                                    <td>{{ $saida->visita }}</td>
                                                     <td>{{ $saida->created_at }}</td>
                                                     <td>
                                                         <form action=" {{ route('saidas.delete', $saida->id) }} "
@@ -80,13 +78,12 @@
                                         </tbody>
                                     </table>
                                 </div>
-                                <!-- /.card-body -->
                             </div>
-                            <!-- /.card -->
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    @include('layouts.datatable')
 @endsection

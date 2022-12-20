@@ -25,8 +25,7 @@ class DashboardController extends Controller
         $financiadors = Financiador::all();
         $participantes = Participante::all();
 
-        $data = date_create(date('d-m-Y'));
-        //dd($request->ano);
+        $data = date_create(date('d-m-Y'));$dados = array();
         $year = $request->ano ?? $data->format('Y');
         foreach ($projectos as $key => $project) {
             $tEntradas = DB::table('entradas')->where('projecto_id', $project->id)->whereYear('created_at', '=', $year)->sum('valor');

@@ -15,7 +15,7 @@
                     <!-- small box -->
                     <div class="small-box bg-info">
                         <div class="inner">
-                            <h3>{{ number_format($entradas->sum('valor'), 2) }}</h3>
+                            <h3>{{ number_format($entradas->sum('valor'), 2). ' MT' }}</h3>
 
                             <p>Entradas</p>
                         </div>
@@ -31,7 +31,7 @@
                     <!-- small box -->
                     <div class="small-box bg-info">
                         <div class="inner">
-                            <h3>{{ number_format($saidas->sum('valor'), 2) }}</h3>
+                            <h3>{{ number_format($saidas->sum('valor'), 2). ' MT' }}</h3>
 
                             <p>Saidas</p>
                         </div>
@@ -116,9 +116,9 @@
                                             @foreach ($dados as $projecto)
                                                 <tr>
                                                     <td>{{ $projecto[0] }}</td>
-                                                    <td>{{ $projecto[1] }}</td>
-                                                    <td>{{ $projecto[2] }}</td>
-                                                    <td>{{ $projecto[3] }}</td>
+                                                    <td>{{ number_format($projecto[1], 2).' MT' }}</td>
+                                                    <td>{{ number_format($projecto[2]).' MT' }}</td>
+                                                    <td>{{ number_format($projecto[3]).' MT' }}</td>
                                                 </tr>
                                             @endforeach
                                         </tbody>
@@ -146,7 +146,7 @@
                                                 <tr>
                                                     <td>{{ $financiador->name }}</td>
                                                     <td>{{ $financiador->acronimo }}</td>
-                                                    <td>{{ $financiador->total }}</td>
+                                                    <td>{{ number_format($financiador->total, 2).' MT' }}</td>
                                                 </tr>
                                             @endforeach
                                         </tbody>

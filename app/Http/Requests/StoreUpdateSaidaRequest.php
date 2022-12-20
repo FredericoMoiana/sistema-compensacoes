@@ -28,13 +28,17 @@ class StoreUpdateSaidaRequest extends FormRequest
                 'required',
                 'integer',
             ],
-            'projecto_id' => [
+            'participante_id' => [
                 'required',
                 'integer',
             ],
             'valor' => [
                 'required',
                 'numeric'
+            ],
+            'visita' => [
+                'required',
+                'string',
             ],
         ];
     }
